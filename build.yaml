@@ -18,9 +18,27 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    # nice_oled
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    # nice_oled
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: main
+  self:
+    path: config
 include:
   - board: nice_nano_v2
-    shield: corne_left
+    shield: corne_left nice_oled
     snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
-    shield: corne_right
+    shield: corne_right nice_oled
